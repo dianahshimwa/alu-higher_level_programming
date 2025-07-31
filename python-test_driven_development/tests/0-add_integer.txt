@@ -1,0 +1,29 @@
+Test 1: Adding two integers
+>>> from 0-add_integer import add_integer
+>>> add_integer(2, 3)
+5
+
+Test 2: Adding an integer and float
+>>> add_integer(100, 2.5)
+102
+
+Test 3: Adding with default second argument
+>>> add_integer(10)
+108
+
+Test 4: Adding two floats
+>>> add_integer(1.2, 3.8)
+4
+
+Test 5: First argument not a number
+>>> add_integer("hello", 3)
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
+
+Test 6: Second argument not a number
+>>> add_integer(3, None)
+Traceback (most recent call last):
+    ...
+TypeError: b must be an integer
+
