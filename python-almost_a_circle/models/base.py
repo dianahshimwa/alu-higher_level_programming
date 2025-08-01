@@ -1,9 +1,13 @@
 #!/usr/bin/python3
 """Defines the Base class"""
 
+
 class Base:
     """Base class for managing id attribute in future classes."""
+
+
     __nb_objects = 0
+
 
     def __init__(self, id=None):
         """Initialize a new Base instance.
