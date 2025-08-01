@@ -85,4 +85,4 @@ class Rectangle(Base):
         else:
             for key, value in kwargs.items():
                 if hasattr(self, key):
-                    setattr(self, key, valueg
+                    setattr(self, key, value)
