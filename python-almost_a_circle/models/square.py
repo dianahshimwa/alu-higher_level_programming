@@ -21,3 +21,14 @@ class Square(Rectangle):
     def __str__(self):
         """Return the string representation of the Square."""
         return f"[Square] ({self.id}) {self.x}/{self.y} - {self.width}"
+
+    @property
+    def size(self):
+        """Get the size of the square (width or height)."""
+        return self.width
+
+    @size.setter
+    def size(self, value):
+        """Set the size of the square (width and height)."""
+        self.width = value
+        self.height = value
