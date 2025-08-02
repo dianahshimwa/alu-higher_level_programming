@@ -8,14 +8,7 @@ class Square(Rectangle):
     """Represents a Square, which is a special kind of Rectangle."""
 
     def __init__(self, size, x=0, y=0, id=None):
-        """Initialize a new Square instance.
-
-        Args:
-            size (int): Size of the square's sides.
-            x (int): x position.
-            y (int): y position.
-            id (int): Identity of the instance.
-        """
+        """Initialize a new Square instance."""
         super().__init__(size, size, x, y, id)
 
     def __str__(self):
@@ -32,3 +25,24 @@ class Square(Rectangle):
         """Set the size of the square (width and height)."""
         self.width = value
         self.height = value
+
+    def update(self, *args, **kwargs):
+        """Assigns attributes using *args or **kwargs.
+
+        Args:
+            *args: Non-keyword arguments in the order:
+                1st - id
+                2nd - size
+                3rd - x
+                4th - y
+            **kwargs: Keyword arguments as key/value pairs.
+        """
+        if args and len(args) > 0:
+            attributes = ["id", "size", "x", "y"]
+            for i, value in enumerate(args):
+                if i < len(attributes):
+                    setattr(self, attributes[i], value)
+        else:
+            for key, value in kwargs.items():
+                if hasattr(self, key):
+                    setattr(self, key, value)
