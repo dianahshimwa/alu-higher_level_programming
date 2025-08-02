@@ -4,7 +4,7 @@ from models.base import Base
 
 
 class Rectangle(Base):
-    """Rectangle class inheriting from Base."""
+    """Rectangle class that inherits from Base."""
 
     def __init__(self, width, height, x=0, y=0, id=None):
         super().__init__(id)
@@ -13,7 +13,6 @@ class Rectangle(Base):
         self.x = x
         self.y = y
 
-    # width getter and setter
     @property
     def width(self):
         return self.__width
@@ -23,7 +22,6 @@ class Rectangle(Base):
         self.validate_integer("width", value)
         self.__width = value
 
-    # height getter and setter
     @property
     def height(self):
         return self.__height
@@ -33,7 +31,6 @@ class Rectangle(Base):
         self.validate_integer("height", value)
         self.__height = value
 
-    # x getter and setter
     @property
     def x(self):
         return self.__x
@@ -43,7 +40,6 @@ class Rectangle(Base):
         self.validate_integer("x", value, zero_allowed=True)
         self.__x = value
 
-    # y getter and setter
     @property
     def y(self):
         return self.__y
@@ -75,13 +71,13 @@ class Rectangle(Base):
         return f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
 
     def update(self, *args, **kwargs):
-        """Assigns arguments to attributes (in order), or via keyword."""
-        attr_order = ["id", "width", "height", "x", "y"]
+        """Assigns arguments to attributes using *args or **kwargs."""
+        attrs = ["id", "width", "height", "x", "y"]
 
         if args and len(args) > 0:
-            for i, value in enumerate(args):
-                if i < len(attr_order):
-                    setattr(self, attr_order[i], value)
+            for i, arg in enumerate(args):
+                if i < len(attrs):
+                    setattr(self, attrs[i], arg)
         else:
             for key, value in kwargs.items():
                 if hasattr(self, key):
